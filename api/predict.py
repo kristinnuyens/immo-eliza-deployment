@@ -97,7 +97,7 @@ if __name__ == "__main__":
     df_ready, preprocessor = preprocess(df, fit=True)
 
     # Make predictions
-    y_pred = predict_price(df_ready, model_path="../api/best_xgb_model_top20.pkl")
+    y_pred = predict_price(df_ready, model_path="../api/xgboost_model.pkl")
 
     # Display the prediction results
     print("Predicted price:")

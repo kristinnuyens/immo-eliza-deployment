@@ -5,11 +5,20 @@ def main():
     st.title("Property Price Prediction")
     
     # Input fields
+    region = st.selectbox("Region", ['Flanders','Brussels-Capital','Wallonia'])
+    province = st.selectbox("Province", ['Hainaut', 'East Flanders', 'West Flanders','Limburg','Brussels','Flemish Brabant',
+                            'Walloon Brabant','Antwerp','Brussels','Liège','Luxembourg','Namur'])
     living_area = st.number_input("Living Area (sqm)", min_value=0)
-    property_type = st.selectbox("Type of Property", ["apartment", "house", "land", "office", "garage"])
+    property_type = st.selectbox("Type of Property", ['APARTMENT', 'HOUSE'])
+    subproperty_type = st.selectbox("Type of Sub-property", ['HOUSE','APARTMENT','VILLA','SERFVICE_FLAT'])
     bedrooms = st.number_input("Bedrooms", min_value=0)
     postal_code = st.number_input("Postal Code", min_value=0)
     
+
+
+
+
+
     # Optional inputs
     garden = st.checkbox("Garden")
     swimming_pool = st.checkbox("Swimming Pool")
