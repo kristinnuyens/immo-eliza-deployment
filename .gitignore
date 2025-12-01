@@ -1,0 +1,14 @@
+# Pickle files
+*.pkl
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+
+# Others
+.DS_Store
+.vscode/
