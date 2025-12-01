@@ -12,19 +12,55 @@ The API and the web application should be intertwined but separate.
 1. Created GitHub repository named `immo-eliza-deployment`
 2. Created an `api` folder to contain all code and files for the API
 3. Added our trained model artifact `best_xgb_model_top20`
-4. 
-
+4. Created a `streamlit` folder to store related application files
 5. 
+
+6. 
   - Add a `predict.py` file that will contain the code used to predict
   - Add a `app.py` file that will house the FastAPI
   - Add a `Dockerfile` to create a Docker image for your API
 - Create a `streamlit` folder that will contain all the code for your Streamlit application
 - Create a `requirements.txt` to store your dependencies
 
-. Preprocessing data/cleaning:
 
 
 
+## ⚙️ Installation
+
+1. Clone the repository:
+
+```
+git clone https://github.com/kristinnuyens/immo-eliza-deployment.git
+```
+
+2. Create and activate a virtual environment (optional):
+
+```
+python3 -m venv venv source venv/bin/activate
+```
+
+3. Install dependencies: 
+
+```
+pip install -r requirements.txt
+```
+
+## 🌳 Repo Structure
+```
+.
+├── api/
+│   ├── app.py
+│   ├── best_xgb_model_top20.pkl
+│   ├── predict.py
+│   └── ...
+├── notebooks/
+│   ├── 01_predict.ipynb
+│   ├── ....ipynb
+│   └── ....ipynb
+├── .gitignore
+├── README.md
+└── requirements.txt
+```
 
 
 
@@ -176,57 +212,6 @@ Both RF and XGB models need hyperparameter tuning to reduce overfitting.
 
 Looking into finetuning we found that RF did not really improve, so continued with XGBoost, and have our current best model stored as best_xgb_model_top20.pkl. Metrics are added in the table above.
 
-## ⚙️ Installation
-
-1. Clone the repository:
-
-```
-git clone https://github.com/kristinnuyens/immo-eliza-ml.git
-```
-
-2. Create and activate a virtual environment (optional):
-
-```
-python3 -m venv venv source venv/bin/activate
-```
-
-3. Install dependencies: 
-
-```
-pip install -r requirements.txt
-```
-
-## Project Plan in Trello
-
-https://trello.com/b/oK2OxRkP/immoeliza-ml
-
-## 🌳 Repo Structure
-```
-.
-├── data/
-│   ├── processed/
-│   └── raw/
-│       └── immoweb_data.csv
-├── models/
-├── notebooks/
-│   ├── ARCHIVE/
-│   │   └──  older notebooks from this project that are not considered active
-│   ├── 00_trello_creation.ipynb
-│   ├── 01_train_test_split.ipynb
-│   ├── 02_preprocess_train_data.ipynb
-│   ├── 03_model_training.ipynb
-│   ├── 04_model_evaluation.ipynb
-│   ├── 05_finetuning_Random_Forest.ipynb
-│   ├── 05a_finetuning_XGBoost.ipynb
-│   ├── 06_functions.ipynb
-│   └── 07_test_function.ipynb
-├── .gitignore
-├── README.md
-└── requirements.txt
-```
-The data/processed/ folder will contain files created during splitting (step 01) and preprocessing (step 02).
-
-The models/ folder will eventually contain the models created during model training (step 03) & finetuning (step 05).
 
 ## 🧑‍💻 Contributors
 

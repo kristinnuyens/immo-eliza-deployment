@@ -74,7 +74,7 @@ def preprocess(df, fit=True, preprocessor=None):
 
     return df_ready, preprocessor
 
-def predict_prices(df_ready, model_path):
+def predict_price(df_ready, model_path):
     # Load the pre-trained model (your best model)
     model = joblib.load(model_path)
     
@@ -87,9 +87,8 @@ def predict_prices(df_ready, model_path):
     return y_pred
 
 if __name__ == "__main__":
-    # Gather the input data path and the trained model file path
+    # Gather the input data
     input_path = input("Enter the path to the input CSV file: ")
-    model_path = input("Enter the path to the model file: ")
 
     # Load the input data
     df = pd.read_csv(input_path)
@@ -98,9 +97,9 @@ if __name__ == "__main__":
     df_ready, preprocessor = preprocess(df, fit=True)
 
     # Make predictions
-    y_pred = predict_prices(df_ready, model_path="../api/best_xgb_model_top20.pkl")
+    y_pred = predict_price(df_ready, model_path="../api/best_xgb_model_top20.pkl")
 
     # Display the prediction results
-    print("Predicted prices:")
+    print("Predicted price:")
     for i, price in enumerate(y_pred, start=1):
         print(f"Property {i}: {price:.2f}")
