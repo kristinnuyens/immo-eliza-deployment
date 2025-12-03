@@ -18,13 +18,13 @@ sample_input = {
     "fl_swimming_pool": False,
     "fl_floodzone": False,
     "fl_double_glazing": True,
-    "property_type": "house",
-    "subproperty_type": "detached",
+    "property_type": "HOUSE",
+    "subproperty_type": "HOUSE",
     "region": "Flanders",
     "province": "Antwerp",
     "equipped_kitchen": "installed",
     "state_building": "good",
-    "heating_type": "central",
+    "heating_type": "FUELOIL",
     "epc_mapped": "good"  # Optional; preprocess will remap anyway
 }
 
