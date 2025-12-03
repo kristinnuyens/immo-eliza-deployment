@@ -8,22 +8,19 @@ They would like us to create an API so their web developers can access the predi
 They also want to have a small web application for the non-technical employees and possibly their clients to use.
 The API and the web application should be intertwined but separate.
 
+My focus for this project will be the small web application.
+
 ## 🧾 Approach
 1. Created GitHub repository named `immo-eliza-deployment`
-2. Created an `api` folder to contain all code and files for the API
-3. Added our trained model artifact `best_xgb_model_top20`
-4. Created a `streamlit` folder to store related application files
-5. 
-
-6. 
-  - Add a `predict.py` file that will contain the code used to predict
-  - Add a `app.py` file that will house the FastAPI
-  - Add a `Dockerfile` to create a Docker image for your API
-- Create a `streamlit` folder that will contain all the code for your Streamlit application
-- Create a `requirements.txt` to store your dependencies
-
-
-
+2. Created a requirements.txt to store dependencies
+3. Created an `api` folder to contain all code and files for the API
+4. Added our trained model artifact `xgboost_model.pkl`
+5. Created an `app.py` file that would house the FastAPI if I get that far
+6. (Not yet created `Dockerfile` to create Docker image for the API)
+7. Created a `predict.py` file that will contain the code used to predict
+8. Created a `streamlit` folder to store related application files
+9. 
+10. 
 
 ## ⚙️ Installation
 
@@ -55,6 +52,10 @@ pip install -r requirements.txt
 │   └── ...
 ├── notebooks/
 │   ├── 01_predict.ipynb
+│   ├── ....ipynb
+│   └── ....ipynb
+├── streamlit/
+│   ├── ...
 │   ├── ....ipynb
 │   └── ....ipynb
 ├── .gitignore
