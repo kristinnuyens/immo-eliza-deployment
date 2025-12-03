@@ -47,13 +47,16 @@ pip install -r requirements.txt
 .
 ├── api/
 │   ├── app.py
-│   ├── best_xgb_model_top20.pkl
 │   ├── predict.py
 │   └── ...
-├── notebooks/
-│   ├── 01_predict.ipynb
-│   ├── ....ipynb
-│   └── ....ipynb
+├── data/
+│   └── immo_data_subset.csv
+├── models/
+│   ├── model.pkl
+│   └── preprocessor.pkl
+├── src/
+│   ├── preprocess_module.py
+│   └── setup_model.py
 ├── streamlit/
 │   ├── ...
 │   ├── ....ipynb
