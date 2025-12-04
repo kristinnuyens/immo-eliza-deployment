@@ -7,7 +7,7 @@ from PIL import Image
 from api.predict import predict
 
 # --- PAGE SETUP ---
-st.set_page_config(page_title="Immo Eliza - Belgian Property Price Predictor", page_icon="🏠", layout="wide")
+st.set_page_config(page_title="Immo Eliza - Property Price Predictor", page_icon="🏠", layout="wide")
 
 # --- GLOBAL STYLES ---
 st.markdown("""
@@ -30,6 +30,9 @@ input[type="number"], select, input[type="text"] {
     border-radius: 5px;
     padding: 4px;
 }
+
+/* Section backgrounds */
+.required-section { background-color: #FFF9E6; padding: 10px; border-radius: 10px; }
 """, unsafe_allow_html=True)
 
 # --- LOAD LOGO ---
@@ -39,15 +42,12 @@ logo = Image.open(logo_path)
 # --- TITLE WITH LOGO ---
 col1, col2 = st.columns([1, 5])
 with col1:
-    st.image(logo, width=190)
+    st.image(logo, width=160)
 with col2:
     st.markdown("""
-        <div style='margin-top:-25px;'>
-            <h1 style='margin:0;'>Immo Eliza</h1>
-            <h2 style='margin-top:2px;'>Belgian Property Price Predictor</h2>
-            <p style='margin:4px 0 0 0;'>Fill in the known details to get your property price prediction:</p>
-            <p style='font-size: 0.8rem; color: #666;'>(Fields marked with * are required)</p>
-        </div>
+        <h1 style='margin:0;'>Immo Eliza</h1>
+        <h2>Property Price Predictor</h2>
+        <p style='margin:4px 0 0 0;'>Fill in the known details to get your property price prediction:</p>
     """, unsafe_allow_html=True)
 
 # --- CALCULATE CURRENT YEAR ---
@@ -100,6 +100,26 @@ with st.container():
 
     st.markdown("</div>", unsafe_allow_html=True)
 
+# --- FEATURES ---
+st.markdown("<h3 style='font-size:20px; margin-bottom:1px;'>📐 Features</h3>", unsafe_allow_html=True)
+
+with st.container():
+    st.markdown('<div class="required-section">', unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+
+    with col1:
+        fl_terrace = st.checkbox("🌿 Terrace")
+        terrace_sqm = st.number_input("Terrace Area (sqm, approx.)", min_value=0, max_value=4000, value=8) if fl_terrace else 0
+        fl_garden = st.checkbox("🌳 Garden")
+        garden_sqm = st.number_input("Garden Area (sqm, approx.)", min_value=0, max_value=200000, value=50) if fl_garden else 0
+
+    with col2:
+        fl_floodzone = st.checkbox("🌊 Flood Zone")
+        heating_type_list = ["Solar", "Electric", "Gas", "Pellet", "FuelOil", "Wood", "Carbon", "MISSING"]
+        heating_type = st.selectbox("Heating Type", heating_type_list)
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
 # --- AMENITIES ---
 st.markdown("<h3 style='font-size:20px; margin-bottom:1px;'>✨ Amenities</h3>", unsafe_allow_html=True)
 
@@ -117,27 +137,7 @@ with st.container():
 
     with col3:
         equipped_kitchen_map = {"Equipped":"EQUIPPED","Partially Equipped":"PARTIALLY_EQUIPPED","Not Equipped":"NOT_EQUIPPED","Unknown":"UNKNOWN"}
-        equipped_kitchen = st.selectbox("👩🏼‍🍳 Equipped Kitchen", list(equipped_kitchen_map.keys()))
-
-    st.markdown("</div>", unsafe_allow_html=True)
-
-# --- CHARACTERISTICS ---
-st.markdown("<h3 style='font-size:20px; margin-bottom:1px;'>📐 Site Characteristics</h3>", unsafe_allow_html=True)
-
-with st.container():
-    st.markdown('<div class="required-section">', unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-
-    with col1:
-        fl_terrace = st.checkbox("🌿 Terrace")
-        terrace_sqm = st.number_input("Terrace Area (sqm, approx.)", min_value=0, max_value=4000, value=8) if fl_terrace else 0
-        fl_garden = st.checkbox("🌳 Garden")
-        garden_sqm = st.number_input("Garden Area (sqm, approx.)", min_value=0, max_value=200000, value=50) if fl_garden else 0
-
-    with col2:
-        fl_floodzone = st.checkbox("🌊 Flood Zone")
-        heating_type_list = ["Solar", "Electric", "Gas", "Pellet", "FuelOil", "Wood", "Carbon", "MISSING"]
-        heating_type = st.selectbox("🌡️ Heating Type", heating_type_list)
+        equipped_kitchen = st.selectbox("Equipped Kitchen", list(equipped_kitchen_map.keys()))
 
     st.markdown("</div>", unsafe_allow_html=True)
 
@@ -182,16 +182,9 @@ if predict_btn:
     try:
         predicted_price = predict(input_data)
         price_placeholder.markdown(f"""
-            <div style="padding:15px;border-radius:1px">
+            <div style="background-color:#FFFAE6;padding:15px;border-radius:1px">
                 <h3>💶 Estimated Property Price: €{predicted_price:,.2f}</h3>
             </div>
         """, unsafe_allow_html=True)
     except Exception as e:
         price_placeholder.error(f"Prediction failed: {e}")
-
-st.markdown("""
-    <hr>
-    <p style="text-align:center; color:#666; font-size:13px;">
-        © 2025 Immo Eliza — All rights reserved
-    </p>
-""", unsafe_allow_html=True)

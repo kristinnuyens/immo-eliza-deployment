@@ -1,8 +1,11 @@
 # CSV files
 *.csv
 
+# data folder
+data/
+
 # Pickle files
-*.pkl
+# *.pkl - files are small enough for git and needed for deployment
 
 # Python
 __pycache__/
