@@ -57,7 +57,7 @@ current_year = datetime.now().year
 st.markdown("<h3 style='font-size:20px; margin-bottom:1px;'>🏷️ Details</h3>", unsafe_allow_html=True)
 
 with st.container():
-    st.markdown('<div>', unsafe_allow_html=True)
+    st.markdown('<div class="required-section">', unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
 
     property_type_map = {"HOUSE": "House", "APARTMENT": "Apartment"}
@@ -104,7 +104,7 @@ with st.container():
 st.markdown("<h3 style='font-size:20px; margin-bottom:1px;'>✨ Amenities</h3>", unsafe_allow_html=True)
 
 with st.container():
-    st.markdown('<div>', unsafe_allow_html=True)
+    st.markdown('<div class="required-section">', unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
 
     with col1:
@@ -125,7 +125,7 @@ with st.container():
 st.markdown("<h3 style='font-size:20px; margin-bottom:1px;'>📐 Site Characteristics</h3>", unsafe_allow_html=True)
 
 with st.container():
-    st.markdown('<div>', unsafe_allow_html=True)
+    st.markdown('<div class="required-section">', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
 
     with col1:

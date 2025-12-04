@@ -46,8 +46,8 @@ To run the app locally:
 git clone https://github.com/kristinnuyens/immo-eliza-deployment.git
 
 # 2. Create and activate a virtual environment
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 
 # 3. Install dependencies
 pip install -r requirements.txt
