@@ -33,7 +33,7 @@ This project contains a fully deployed **Streamlit web application** that predic
 
 The application is deployed and accessible here:
 
-👉 **Live app:** *[add your Streamlit deployment link]*
+👉 **Live app:** *[Immo-Eliza-Property-Price-prectictor](https://immo-eliza-property-price-predictor.streamlit.app/)*
 
 The deployment automatically rebuilds when the repository is updated
 

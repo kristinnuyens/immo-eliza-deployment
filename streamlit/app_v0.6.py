@@ -190,15 +190,8 @@ if predict_btn:
         price_placeholder.error(f"Prediction failed: {e}")
 
 st.markdown("""
-    <div style="text-align: center; font-size: 12px;">
-        This application is provided for informational purposes only. Use at your own risk.
-    </div>
-    """, unsafe_allow_html=True
-)
-
-st.markdown("""
     <hr>
-    <p style="text-align:center; color:#666; font-size:12px;">
+    <p style="text-align:center; color:#666; font-size:13px;">
         © 2025 Immo Eliza — All rights reserved
     </p>
 """, unsafe_allow_html=True)
